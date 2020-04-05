@@ -9,9 +9,10 @@
   ],
   "scripts": {
     "build": "gatsby build",
-    "build-netlify": "npm run develop",
-    "start": "yarn develop",
-    "develop": "gatsby develop -o",
+    "build-netlify": "npm run develop-prod",
+    "start": "npm run develop-dev",
+    "develop-dev": "gatsby develop -o",
+    "develop-prod": "DEPLOY_ENV=lbn_published_production gatsby develop",
     "serve": "gatsby serve",
     "d": "npm run develop",
     "dev": "npm run develop",
