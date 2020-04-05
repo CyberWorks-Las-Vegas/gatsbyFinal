@@ -1,6 +1,6 @@
 [build]
   publish = "public"
-  command = "npm run build-netlify"
+  command = "npm run start"
 [build.environment]
   YARN_VERSION = "0.18.1"
   NODE_VERSION = "13.2.0"
