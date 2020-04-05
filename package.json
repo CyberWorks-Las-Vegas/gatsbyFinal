@@ -27,17 +27,9 @@
     "upgrade": "npm-check --update",
     "upgrade-interactive": "npm-check --update"
   },
-  "resolutions": {
-    "fsevents": "^2.1.1"
-  },
   "browerslist": [
     "last 2 versions"
   ],
-  "workspaces": {
-    "nohoist": [
-      "gatsby*"
-    ]
-  },
   "dependencies": {
     "antd": "^3.12.3",
     "babel-eslint": "^10.0.1",
