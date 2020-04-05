@@ -9,8 +9,8 @@
   ],
   "scripts": {
     "build": "gatsby build",
-    "build-netlify": "gatsby build",
-    "start": "npm run develop",
+    "build-netlify": "npm run develop",
+    "start": "yarn develop",
     "develop": "gatsby develop -o",
     "serve": "gatsby serve",
     "d": "npm run develop",
