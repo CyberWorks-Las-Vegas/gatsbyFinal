@@ -12,7 +12,7 @@
     "build-netlify": "npm run develop-prod",
     "start": "npm run develop-dev",
     "develop-dev": "gatsby develop -o",
-    "develop-prod": "DEPLOY_ENV=lbn_published_production gatsby develop",
+    "develop-prod": "DEPLOY_ENV=lbn_published_production gatsby build",
     "serve": "gatsby serve",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "lint": "tslint --project .",
