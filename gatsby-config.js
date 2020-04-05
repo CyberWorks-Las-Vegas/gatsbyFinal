@@ -54,7 +54,7 @@ module.exports = {
         },
       },
     },
-    // Setup WPGraphQL.com to be the source
+    // Setup jam.cyberworks.tech to be the source
     {
       resolve: `gatsby-source-graphql`,
       options: {
@@ -76,6 +76,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -90,6 +91,6 @@ module.exports = {
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.app/offline
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
   ],
 }
