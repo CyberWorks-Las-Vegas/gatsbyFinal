@@ -5,6 +5,7 @@ module.exports = {
     wordPressUrl: `https://jam.cyberworks.tech`,
     description: `business webiste`,
     author: `Olonnye Taylor`,
+    pagePrefix: '',
   },
   plugins: [
     // Include Ant Design component library.
@@ -72,6 +73,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/public`,
+        name: `blog`,
       },
     },
     `gatsby-transformer-sharp`,
