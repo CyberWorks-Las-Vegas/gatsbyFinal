@@ -24,7 +24,7 @@ module.exports = async ({ actions, graphql }) => {
     }
   }
   `
-  const { createPage } = actions
+  const { createPage } = actions;
   const allPages = []
   const fetchPages = async variables =>
     await graphql(GET_PAGES, variables).then(({ data }) => {

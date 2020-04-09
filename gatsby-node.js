@@ -14,7 +14,7 @@ exports.createPages = async ({ actions, graphql }) => {
         await createCategories({ actions, graphql });
         await createTags({ actions, graphql });
       } catch (err) {
-        console.log(err)
+        console.log(err, 'in node')
       }
     })()
   ])
