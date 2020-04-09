@@ -30,17 +30,23 @@
     "last 2 versions"
   ],
   "dependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@theme-ui/presets": "^0.3.0",
     "antd": "^3.12.3",
     "gatsby": "^2.20.12",
     "gatsby-cli": "^2.4.9",
     "gatsby-image": "^2.0.20",
     "gatsby-plugin-antd": "^2.0.2",
+    "gatsby-plugin-emotion": "^4.2.1",
     "gatsby-plugin-less": "^2.0.11",
     "gatsby-plugin-manifest": "^2.0.9",
     "gatsby-plugin-netlify": "^2.1.31",
     "gatsby-plugin-offline": "^2.0.23",
     "gatsby-plugin-react-helmet": "^3.0.2",
     "gatsby-plugin-sharp": "^2.0.14",
+    "gatsby-plugin-theme-ui": "^0.3.0",
+    "gatsby-plugin-typescript": "^2.3.1",
     "gatsby-plugin-typography": "^2.2.7",
     "gatsby-source-filesystem": "^2.1.46",
     "gatsby-source-graphql": "^2.0.8",
@@ -52,7 +58,9 @@
     "react": "^16.6.3",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-dom": "^16.6.3",
-    "react-helmet": "^5.2.0"
+    "react-helmet": "^5.2.0",
+    "react-spring": "^8.0.27",
+    "theme-ui": "^0.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",

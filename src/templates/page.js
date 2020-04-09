@@ -6,6 +6,7 @@ import CategoriesWidget from "../components/CategoriesWidget"
 import RecentCommentsWidget from "../components/RecentCommentsWidget"
 import RecentPostsWidget from "../components/RecentPostsWidget"
 import Seo from "../components/Seo"
+import Hero from "../components/hero"
 
 const Page = props => {
   const {
@@ -22,6 +23,7 @@ const Page = props => {
         <Col xs={24} md={16}>
           <h1>{title}</h1>
           <Divider />
+          <Hero offset={0} factor={1} />
           <Row type="flex" justify="space-around" gutter={24}>
             <Col xs={24}>
               <div dangerouslySetInnerHTML={{ __html: content }} />

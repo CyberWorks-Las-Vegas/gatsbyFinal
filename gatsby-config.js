@@ -6,8 +6,15 @@ module.exports = {
     description: `business webiste`,
     author: `Olonnye Taylor`,
     pagePrefix: '',
+    siteLanguage: `en`,
   },
   plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-emotion`,
+    `gatsby-plugin-theme-ui`,
+    `gatsby-plugin-typescript`,
     // Include Ant Design component library.
     {
       resolve: `gatsby-plugin-antd`,
@@ -82,9 +89,6 @@ module.exports = {
         name: `blog`,
       },
     },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
