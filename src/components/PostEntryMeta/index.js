@@ -5,7 +5,7 @@ import { Link } from "gatsby"
 
 const PostEntryMeta = ({ post }) => (
   <Row
-    justify="middle"
+    justify="space-around"
     style={{ textAlign: `center`, marginBottom: `15px` }}
     gutter={16}
   >

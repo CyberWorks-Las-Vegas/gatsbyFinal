@@ -35,7 +35,7 @@ module.exports = async ({ actions, graphql }) => {
             pageInfo: { hasNextPage, endCursor },
           },
         },
-      } = data
+      } = data;
       nodes.map(page => {
         allPages.push(page)
       })
@@ -50,8 +50,9 @@ module.exports = async ({ actions, graphql }) => {
 
     allPages.map(page => {
       console.log(`create page: ${page.uri}`)
+      let pageURI = page.uri.substring(1)
       createPage({
-        path: `/${page.uri}`,
+        path: `/${pageURI}`,
         component: pageTemplate,
         context: page,
       })

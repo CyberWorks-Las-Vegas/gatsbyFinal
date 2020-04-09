@@ -25,7 +25,7 @@ const CategoriesWidget = () => (
           <ul>
             {data.wpgraphql.categories.nodes.map(category => {
               return (
-                <li>
+                <li key={category.slug.length + category.name.length}>
                   <Link to={`/blog/category/${category.slug}`}>{category.name}</Link>
                 </li>
               )

@@ -46,7 +46,7 @@ const RecentCommentsWidget = () => (
             {data.wpgraphql.comments.nodes.map(comment => {
               if (`WPGraphQL_Post` === comment.commentedOn.__typename) {
                 return (
-                  <li>
+                  <li key={comment.commentedOn.id}>
                     {comment.author.name} on{` `}
                     <Link to={createLocalLink(comment.commentedOn.link)}>
                       {comment.commentedOn.title}

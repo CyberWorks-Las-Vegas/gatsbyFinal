@@ -16,6 +16,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-theme-codebushi`,
+      options: {
+        tailwindConfig: `tailwind.config.js`
+      }
+    },
+    {
       resolve: `gatsby-plugin-less`,
       options: {
         javascriptEnabled: true,

@@ -30,10 +30,10 @@ const SiteLayout = ({ children, location }) => (
       </Col>
     </Row>
     <Footer style={{ textAlign: `center` }}>
-      © {new Date().getFullYear()} | Built with
+      © {new Date().getFullYear()} | Powered by
       {` `}
-      <a href="https://www.wpgraphql.com">WPGraphQL</a> and{` `}
-      <a href="https://www.gatsbyjs.org">Gatsby</a>
+      <a href="https://cyberworks.tech">cyberworks</a> and{` `}
+
     </Footer>
   </Layout>
 )
