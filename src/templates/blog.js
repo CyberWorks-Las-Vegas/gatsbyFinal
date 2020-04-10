@@ -7,6 +7,7 @@ import RecentPostsWidget from "../components/RecentPostsWidget"
 import PostEntry from "../components/PostEntry"
 import HomepageLayout from "../components/HomepageLayout"
 import Seo from "../components/Seo"
+import Hero from "../components/hero"
 
 class IndexPage extends Component {
   renderPreviousLink = () => {
@@ -60,6 +61,7 @@ class IndexPage extends Component {
     return (
       <HomepageLayout pageNumber={pageNumber} location={{ location }}>
         <Seo title={`Blog${blogPageNumber}`} />
+        <Hero offset={0} factor={1} />
         <Row type="flex" gutter={24}>
           <Col xs={24} md={16}>
             {data &&

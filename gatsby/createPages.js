@@ -1,5 +1,6 @@
 const path = require(`path`)
-module.exports = async ({ actions, graphql }) => {
+
+module.exports = async (actions, graphql) => {
   const GET_PAGES = `
   query GET_PAGES($first:Int $after:String){
     wpgraphql {
