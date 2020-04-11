@@ -1,4 +1,5 @@
 // @jsx jsx
+import React from "react"
 import { jsx } from "theme-ui"
 import Divider from "../elements/divider"
 import Inner from "../elements/inner"
@@ -8,7 +9,7 @@ import { UpDown, UpDownWide } from "../styles/animations"
 // @ts-ignore
 // import Intro from "../sections/intro"
 
-const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
+const Hero = ({ offset, factor = 1, children }: { offset: number; factor?: number; children?: React.ReactNode }) => (
   <div>
     <Divider speed={0.2} offset={offset} factor={factor}>
       <UpDown>
@@ -40,11 +41,7 @@ const Hero = ({ offset, factor = 1 }: { offset: number; factor?: number }) => (
     </Divider>
     <Content sx={{ variant: `texts.bigger` }} speed={0.4} offset={offset} factor={factor}>
       <Inner>
-        <div>
-          <p>
-            Hello world
-          </p>
-        </div>
+        {children}
       </Inner>
     </Content>
   </div>
