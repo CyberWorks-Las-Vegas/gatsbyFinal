@@ -1,5 +1,6 @@
 const path = require(`path`)
 module.exports = async (actions, graphql) => {
+  console.log('in, users', { actions, graphql })
   const GET_USERS = `
   query GET_USERS($first: Int) {
     wpgraphql { 

@@ -4,6 +4,7 @@ import { Layout, Row, Col } from "antd"
 import wpgraphqlLogo from "../../images/wpgraphql-logo.png"
 import { Parallax } from "react-spring/renderprops-addons"
 import Hero from "../hero"
+import Projects from "../projects"
 
 const { Content } = Layout
 
@@ -11,8 +12,8 @@ const HomepageLayout = ({ pageNumber, location, children }) => {
   const parallax = useRef(null)
   console.log(parallax);
   return (
-    <Layout>
-      <Parallax pages={5} ref={parallax}>
+    <Parallax pages={3} ref={parallax}>
+      <Layout>
         <SiteHeader location={location} />
         {!pageNumber ? (
           <Hero
@@ -50,28 +51,33 @@ const HomepageLayout = ({ pageNumber, location, children }) => {
             </Row>
           </Hero>
         ) : null}
-        <Row
-          type="flex"
-          justify="space-around"
-          style={{
-            background: `transparent`,
-            padding: `24px`,
-          }}
+        <Projects
+          offset={1}
+          factor={2}
         >
-          <Col xs={24} md={18}>
-            <Content
-              style={{
-                minHeight: `calc(100vh - 134px)`,
-                padding: `50px 50px`,
-                background: `#ffffff`,
-              }}
-            >
-              {children}
-            </Content>
-          </Col>
-        </Row>
-      </Parallax>
-    </Layout>
+          <Row
+            type="flex"
+            justify="space-around"
+            style={{
+              background: `transparent`,
+              padding: `24px`,
+            }}
+          >
+            <Col xs={24} md={18}>
+              <Content
+                style={{
+                  minHeight: `calc(100vh - 134px)`,
+                  padding: `50px 50px`,
+                  background: `#ffffff`,
+                }}
+              >
+                {children}
+              </Content>
+            </Col>
+          </Row>
+        </Projects>
+      </Layout>
+    </Parallax >
   )
 }
 
