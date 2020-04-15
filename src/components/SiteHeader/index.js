@@ -20,7 +20,7 @@ const Index = ({ location }) => (
     `}
     render={data => (
       <Header
-        style={{ zIndex: `5` }}
+        style={{ zIndex: `1000` }}
       >
         <div
           className="logo"
