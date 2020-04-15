@@ -30,8 +30,10 @@ module.exports = {
           // DEFAULTS FOR ANT DESIGN
           // Full list of variables can be found here:
           // https://github.com/ant-design/ant-design/blob/master/components/style/themes/default.less
-          // @primary-color: #1890ff;
+          // @primary-color: #1890ff; #
           "layout-header-background": `#0e2339`,
+          // @layout-body-background: #f0f2f5;
+          "layout-body-background": `80a1ea42`,
           // primary color for all components
           "primary-color": `#1890ff`,
           // @link-color: #1890ff;

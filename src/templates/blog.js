@@ -1,10 +1,7 @@
 import React, { Component } from "react"
 import { graphql, navigate } from "gatsby"
 import { Button, Col, Row } from "antd"
-import CategoriesWidget from "../components/CategoriesWidget"
-import RecentCommentsWidget from "../components/RecentCommentsWidget"
-import RecentPostsWidget from "../components/RecentPostsWidget"
-import PostEntry from "../components/PostEntry"
+import Services from "../components/Services"
 import HomepageLayout from "../components/HomepageLayout"
 import Seo from "../components/Seo"
 
@@ -59,22 +56,22 @@ class IndexPage extends Component {
     const blogPageNumber = () => { if (pageNumber) { return `Page ${pageNumber}` } else { return `` } }
     return (
       <HomepageLayout pageNumber={pageNumber} location={{ location }}>
-        <Seo title={`Blog${blogPageNumber}`} />
-        <Row type="flex" gutter={24}>
-          <Col xs={24} md={16}>
-            {data &&
+        <Seo title={`Blog${blogPageNumber()}`} />
+        <Row type="flex">
+          <Services />
+          {/* <Col xs={24} md={16}>
+             {data &&
               data.wpgraphql &&
               data.wpgraphql.posts.nodes.map(post => (
                 <div key={post.id}>
                   <PostEntry post={post} />
                 </div>
-              ))}
+              ))} *
+            
           </Col>
-          <Col xs={24} md={8}>
-            <RecentPostsWidget />
-            <CategoriesWidget />
-            <RecentCommentsWidget />
-          </Col>
+           <Col xs={24} md={8}>
+            <Services />
+          </Col> 
         </Row>
         <Row
           type="flex"
@@ -94,7 +91,7 @@ class IndexPage extends Component {
             <Row type="flex" justify="end">
               {this.renderNextLink()}
             </Row>
-          </Col>
+          </Col> */}
         </Row>
       </HomepageLayout>
     )

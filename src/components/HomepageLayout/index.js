@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import SiteHeader from "../../components/SiteHeader"
 import { Layout, Row, Col } from "antd"
-import wpgraphqlLogo from "../../images/wpgraphql-logo.png"
+import landingImg from "../../images/cw-main-landing2-1.png"
 import { Parallax } from "react-spring/renderprops-addons"
 import Hero from "../hero"
 import Projects from "../projects"
@@ -23,31 +23,51 @@ const HomepageLayout = ({ pageNumber, location, children }) => {
             <Row
               type="flex"
               justify="center"
-              style={{ padding: `75px 75px 50px 75px` }}
             >
-              <Col xs={24} md={14} style={{ textAlign: `center` }}>
-                <h1>Cyberworks Demo build</h1>
+              <colgroup>
                 <Row
                   type="flex"
                   justify="center"
                   align="middle"
                   style={{ marginBottom: `2rem` }}
                 >
-                  <Col xs={24} lg={12}>
+                  <Col style={{ marginTop: `1.8rem` }}>
                     <Row type="flex" justify="center" align="middle">
-                      <Col xs={10}>
+                      <Col>
                         <Row type="flex" justify="start">
+                          <div
+                            style={{
+                              textAlign: `left`,
+                              position: `absolute`,
+                              marginTop: `3rem`,
+                              marginLeft: `3rem`,
+                              width: `35vw`,
+                              zIndex: `2`
+                            }}
+                          >
+                            <h1 style={{ color: `reds`, }}>
+                              Cyberworks Demo build
+                          </h1>
+                            <p style={{ fontSize: `14px`, lineHeight: `3` }}>
+                              Zombie ipsum brains reversus ab cerebellum viral inferno,
+                              brein nam rick mend grimes malum cerveau cerebro.
+                              De carne cerebro lumbering animata cervello corpora quaeritis.
+                              Summus thalamus brains sit​​, morbo basal ganglia vel maleficia?
+                              De braaaiiiins apocalypsi gorger omero prefrontal cortex undead survivor fornix dictum mauris.
+                              Hi brains mindless mortuis limbic
+                            </p>
+                          </div>
                           <img
-                            style={{ height: `100px`, width: `100px` }}
-                            src={wpgraphqlLogo}
-                            alt="WPGraphQL Logo"
+                            style={{ height: `100vh`, width: `100vw`, zIndex: `1` }}
+                            src={landingImg}
+                            alt="cyberworks Logo"
                           />
                         </Row>
                       </Col>
                     </Row>
                   </Col>
                 </Row>
-              </Col>
+              </colgroup>
             </Row>
           </Hero>
         ) : null}
@@ -64,15 +84,7 @@ const HomepageLayout = ({ pageNumber, location, children }) => {
             }}
           >
             <Col xs={24} md={18}>
-              <Content
-                style={{
-                  minHeight: `calc(100vh - 134px)`,
-                  padding: `50px 50px`,
-                  background: `#ffffff`,
-                }}
-              >
-                {children}
-              </Content>
+              {children}
             </Col>
           </Row>
         </Projects>
