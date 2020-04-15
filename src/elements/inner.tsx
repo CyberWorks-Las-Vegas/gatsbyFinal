@@ -8,7 +8,7 @@ type InnerProps = {
 }
 
 const Inner = ({ className, children }: InnerProps) => (
-  <div className={className} sx={{ width: `100vw`, textAlign: `left` }}>
+  <div className={className} sx={{ width: `100vw`, textAlign: `left`, Zindex: `1` }}>
     {children}
   </div>
 )
