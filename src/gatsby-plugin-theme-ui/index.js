@@ -15,7 +15,7 @@ export default {
     textMuted: tailwind.colors.gray[5],
     icon_brightest: tailwind.colors.white,
     icon_darker: tailwind.colors.gray[7],
-    icon_darkest: tailwind.colors.gray[8],
+    icon_darkest: `${tailwind.colors.gray[8] + '3b'}`,
     icon_red: `${tailwind.colors.red[6] + '3b'}`,
     icon_blue: `${tailwind.colors.blue[6] + '3b'}`,
     icon_orange: `${tailwind.colors.orange[5] + '3b'}`,
