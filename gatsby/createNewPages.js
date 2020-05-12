@@ -1,7 +1,7 @@
 const path = require(`path`)
-
+// const {slash} = require(``)
 module.exports = async (actions, graphql) => {
-  console.log('in, page', { actions, graphql })
+  console.log(`in, page`, { actions, graphql })
   const GET_PAGES = `
   query GET_PAGES($first:Int $after:String){
     wpgraphql {
@@ -26,7 +26,7 @@ module.exports = async (actions, graphql) => {
     }
   }
   `
-  const { createPage } = actions;
+  const { createPage } = actions
   const allPages = []
   const fetchPages = async variables =>
     await graphql(GET_PAGES, variables).then(({ data }) => {
@@ -37,7 +37,7 @@ module.exports = async (actions, graphql) => {
             pageInfo: { hasNextPage, endCursor },
           },
         },
-      } = data;
+      } = data
       nodes.map(page => {
         allPages.push(page)
       })
@@ -56,7 +56,7 @@ module.exports = async (actions, graphql) => {
         createPage({
           path: `/${pageURI}`,
           component: pageTemplate,
-          context: page !== undefined ? page : null
+          context: page !== undefined ? page : null,
         })
       })
     }

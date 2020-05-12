@@ -53,7 +53,13 @@ class IndexPage extends Component {
       location,
       pageContext: { pageNumber },
     } = this.props
-    const blogPageNumber = () => { if (pageNumber) { return `Page ${pageNumber}` } else { return `` } }
+    const blogPageNumber = () => {
+      if (pageNumber) {
+        return `Page ${pageNumber}`
+      } else {
+        return ``
+      }
+    }
     return (
       <HomepageLayout pageNumber={pageNumber} location={{ location }}>
         <Seo title={`Blog${blogPageNumber()}`} />

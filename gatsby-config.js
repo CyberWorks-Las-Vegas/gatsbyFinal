@@ -1,3 +1,4 @@
+require(`dotenv`).config()
 module.exports = {
   siteMetadata: {
     title: `cyberworks`,
@@ -5,7 +6,7 @@ module.exports = {
     wordPressUrl: `https://jam.cyberworks.tech`,
     description: `business webiste`,
     author: `Olonnye Taylor`,
-    pagePrefix: '',
+    pagePrefix: ``,
     siteLanguage: `en`,
   },
   plugins: [
@@ -15,6 +16,32 @@ module.exports = {
     `gatsby-plugin-emotion`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-typescript`,
+    // connection to wordpress data
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        baseUrl: process.env.URL_DEV,
+        protocol: `http`,
+        restApiRoutePrefix: `wp-json`,
+        hostingWPCOM: false,
+        useACF: true,
+        verboseOutput: true,
+        perPage: 100,
+        includedRoutes: [
+          `**/home_contents`,
+          `**/categories`,
+          `/*/*/comments`,
+          `**/posts`,
+          `**/pages`,
+          `**/media`,
+          `**/tags`,
+          `**/taxonomies`,
+          `**/users`,
+          `/yoast/**`,
+        ],
+        keepMediaSizes: false,
+      },
+    },
     // Include Ant Design component library.
     {
       resolve: `gatsby-plugin-antd`,
@@ -82,7 +109,7 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      }
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
