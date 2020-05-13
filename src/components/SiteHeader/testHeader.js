@@ -1,7 +1,6 @@
-import React from 'react';
-import AnchorLink from 'react-anchor-link-smooth-scroll';
+import React from "react"
+import AnchorLink from "react-anchor-link-smooth-scroll"
 import cyberworksLogo from "../../images/wpgraphql-logo.png"
-import Button from '../Button';
 
 const Header = () => (
   <header className="sticky top-0 bg-white shadow">
@@ -18,7 +17,7 @@ const Header = () => (
               float: `left`,
             }}
           >
-            <Link
+            <AnchorLink
               to="/"
               style={{
                 color: `white`,
@@ -26,11 +25,11 @@ const Header = () => (
               }}
             >
               <img
-                src={wpgraphqlLogo}
-                alt="WPGraphQL Logo"
+                src={cyberworksLogo}
+                alt="cyberworks company Logo"
                 style={{ height: `30px`, width: `30px` }}
               />
-            </Link>
+            </AnchorLink>
           </div>
         </div>
         CyberWorks
@@ -50,10 +49,10 @@ const Header = () => (
         </AnchorLink>
       </div>
       <div className="hidden md:block">
-        <Button className="text-sm">Remote</Button>
+        <button className="text-sm">Remote</button>
       </div>
     </div>
   </header>
-);
+)
 
-export default Header;
+export default Header

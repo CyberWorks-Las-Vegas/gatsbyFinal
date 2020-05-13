@@ -19,9 +19,7 @@ const Index = ({ location }) => (
       }
     `}
     render={data => (
-      <Header
-        style={{ zIndex: `1000` }}
-      >
+      <Header style={{ zIndex: `1000` }}>
         <div
           className="logo"
           style={{

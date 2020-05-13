@@ -1,18 +1,19 @@
-const createPosts = require(`./gatsby/createPosts`)
 const createNewPages = require(`./gatsby/createNewPages`)
-const createUsers = require(`./gatsby/createUsers`)
-const createCategories = require(`./gatsby/createCategories`)
-const createTags = require(`./gatsby/createTags`)
+// const createUsers = require(`./gatsby/createUsers`)
+// const createCategories = require(`./gatsby/createCategories`)
+// const createTags = require(`./gatsby/createTags`)
+// const createPosts = require(`./gatsby/createPosts`)
+
+// await createPosts(actions, graphql)
+// await createCategories(actions, graphql)
+// await createUsers(actions, graphql)
+// await createTags(actions, graphql)
 
 exports.createPages = async ({ actions, graphql }) => {
   await Promise.all([
     (async () => {
       try {
         await createNewPages(actions, graphql)
-        await createPosts(actions, graphql)
-        await createCategories(actions, graphql)
-        await createUsers(actions, graphql)
-        await createTags(actions, graphql)
       } catch (err) {
         console.log(err, `in node`)
       }
