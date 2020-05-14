@@ -10,15 +10,14 @@ export default {
     secondary: tailwind.colors.indigo[6],
     text: tailwind.colors.gray[3],
     heading: tailwind.colors.white,
-    background: `#80a1ea42`,
     divider: tailwind.colors.gray[8],
     textMuted: tailwind.colors.gray[5],
     icon_brightest: tailwind.colors.white,
     icon_darker: tailwind.colors.gray[7],
-    icon_darkest: `${tailwind.colors.gray[8] + '3b'}`,
-    icon_red: `${tailwind.colors.red[6] + '3b'}`,
-    icon_blue: `${tailwind.colors.blue[6] + '3b'}`,
-    icon_orange: `${tailwind.colors.orange[5] + '3b'}`,
+    icon_darkest: `${tailwind.colors.gray[8] + `3b`}`,
+    icon_red: `${tailwind.colors.red[6] + `3b`}`,
+    icon_blue: `${tailwind.colors.blue[6] + `3b`}`,
+    icon_orange: `${tailwind.colors.orange[5] + `3b`}`,
     icon_yellow: tailwind.colors.yellow[5],
     icon_pink: tailwind.colors.pink[5],
     icon_purple: tailwind.colors.purple[6],
@@ -74,7 +73,7 @@ export default {
     root: {
       ...tailwind.styles.root,
       color: `text`,
-      backgroundColor: `background`,
+      background: `linear-gradient(133deg, black, rgb(181, 135, 255))`,
       a: {
         transition: `all 0.3s ease-in-out`,
         "&:hover": {

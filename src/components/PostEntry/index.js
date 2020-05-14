@@ -1,5 +1,5 @@
 import React, { Fragment } from "react"
-import { Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import { Row, Col, Divider } from "antd"
 import config from "../../../config"
 import PostEntryMeta from "../PostEntryMeta"
@@ -17,7 +17,9 @@ const PostEntry = ({ post }) => {
           </h2>
           <div
             dangerouslySetInnerHTML={{
-              __html: post.content ? post.content.replace(config.wordPressUrl, ``) : post.content,
+              __html: post.content
+                ? post.content.replace(config.wordPressUrl, ``)
+                : post.content,
             }}
           />
         </Col>
@@ -28,21 +30,3 @@ const PostEntry = ({ post }) => {
 }
 
 export default PostEntry
-
-export const query = graphql`
-  fragment PostEntryFragment on WPGraphQL_Post {
-    id
-    title
-    uri
-    slug
-    date
-    content: excerpt
-    author {
-      name
-      slug
-      avatar(size: 100) {
-        url
-      }
-    }
-  }
-`

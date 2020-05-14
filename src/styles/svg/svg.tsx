@@ -1,7 +1,7 @@
 import React from "react"
-// @jsx jsx 
+// @jsx jsx
 import { jsx } from "theme-ui"
-import { hidden } from "../styles/utils"
+import { hidden } from "../utils"
 
 const icons = {
   triangle: {
@@ -67,7 +67,14 @@ const icons = {
   },
 }
 
-type IconType = "triangle" | "circle" | "arrowUp" | "upDown" | "box" | "hexa" | "cross"
+type IconType =
+  | "triangle"
+  | "circle"
+  | "arrowUp"
+  | "upDown"
+  | "box"
+  | "hexa"
+  | "cross"
 
 type SVGProps = {
   stroke?: boolean
@@ -84,7 +91,15 @@ const defaultProps = {
   hiddenMobile: false,
 }
 
-const SVG = ({ stroke, color, width, icon, left, top, hiddenMobile }: SVGProps) => (
+const SVG = ({
+  stroke,
+  color,
+  width,
+  icon,
+  left,
+  top,
+  hiddenMobile,
+}: SVGProps) => (
   <svg
     sx={{
       position: `absolute`,

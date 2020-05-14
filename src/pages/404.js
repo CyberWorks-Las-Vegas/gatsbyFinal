@@ -1,6 +1,4 @@
 import React from "react"
-
-import SiteLayout from "../components/TestSiteLayout"
 import Seo from "../components/Seo"
 
 const NotFoundPage = ({ location }) => (

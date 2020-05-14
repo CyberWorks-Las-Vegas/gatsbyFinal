@@ -1,48 +1,52 @@
 const path = require(`path`)
-
+// Will create pages for WordPress pages (route : /Home)
 module.exports = async (actions, graphql) => {
+  //  creates 'database' from the fetched WP data to run graphql queries
   const GET_PAGE_CONTENT = `
     {
       allWordpressWpHomeContent {
-        nodes {
-          slug
-          path
-          title
-          content
-          id
+        edges {
+          node {
+            id
+            slug
+          } 
         }
       }
     }
   `
-  const { createPage } = actions
-  const allContent = []
-  let graphqlErrors = null
-  const fetchHomePageContent = async () => {
-    const WP_DATA = await graphql(GET_PAGE_CONTENT)
-      .then(data => data)
-      .catch(err => (graphqlErrors = err))
 
-    if (graphqlErrors === null) {
-      const {
-        data: {
-          allWordpressWpHomeContent: {
-            nodes: { slug, path, title, content, id },
-          },
-        },
-      } = WP_DATA
-      allContent.push(slug, path, title, content, id)
+  const { createPage } = actions
+  let nodeCount = 0
+  let graphqlErrors = null
+
+  const fetchHomePageContent = async () => {
+    // Fetch wordpress data
+    const WP_DATA = await graphql(GET_PAGE_CONTENT)
+    // Access query results via object destructuring
+    const { allWordpressWpHomeContent } = WP_DATA.data
+    // check for errors and bubble up
+    if (WP_DATA.errors) {
+      graphqlErrors = true
+      throw new Error(`${WP_DATA.errors}`)
     }
-    return allContent
+    // check if error has been thrown before running
+    if (graphqlErrors === null) {
+      nodeCount = allWordpressWpHomeContent.edges.map(node => node).length
+    }
+    return nodeCount
   }
 
-  await fetchHomePageContent().then(contentArray => {
-    const pageTemplate = path.resolve(`./src/templates/homePage.js`)
-
-    console.log(`create home page: ${contentArray}`)
-    createPage({
-      path: `/Home`,
-      component: pageTemplate,
-      context: contentArray,
+  await fetchHomePageContent()
+    .then(nodeCount => {
+      const pageTemplate = path.resolve(`./src/templates/homePage.js`)
+      console.log(`create home page: ${nodeCount}`)
+      createPage({
+        path: `/Home`,
+        component: pageTemplate,
+        context: { first: nodeCount },
+      })
     })
-  })
+    .catch(err => {
+      throw new Error(err)
+    })
 }

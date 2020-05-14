@@ -1,8 +1,7 @@
+import React from "react"
+import Card from "./Card"
 
-import React from 'react';
-import Card from './Card';
-
-const Services = (props) => (
+const Services = props => (
   <React.Fragment>
     <section id="features" className="py-20 lg:pb-40 lg:pt-48">
       <div className="container mx-auto text-center">
@@ -21,8 +20,8 @@ const Services = (props) => (
             <Card className="mb-8">
               <p className="font-semibold text-xl">Service Two</p>
               <p className="mt-4">
-                cerveau eorum defunctis cerebro go lum cerebro. Nescio brains
-                an Undead cervello zombies.
+                cerveau eorum defunctis cerebro go lum cerebro. Nescio brains an
+                Undead cervello zombies.
               </p>
             </Card>
           </div>
@@ -30,8 +29,8 @@ const Services = (props) => (
             <Card className="mb-8">
               <p className="font-semibold text-xl">Service Three</p>
               <p className="mt-4">
-                Sicut thalamus malus putrid brains voodoo horror.
-                Nigh basal ganglia tofth eliv ingdead.
+                Sicut thalamus malus putrid brains voodoo horror. Nigh basal
+                ganglia tofth eliv ingdead.
               </p>
             </Card>
           </div>
@@ -39,6 +38,6 @@ const Services = (props) => (
       </div>
     </section>
   </React.Fragment>
-);
+)
 
-export default Services;
+export default Services

@@ -1,37 +1,62 @@
-import React, { Component } from "react"
+import React from "react"
 import { graphql } from "gatsby"
-import { Row } from "antd"
-import Services from "../components/Services"
 import HomepageLayout from "../components/HomepageLayout"
 import Seo from "../components/Seo"
 
-class IndexPage extends Component {
-  render() {
-    console.log(`in homepage`, { context: this.props })
-    return (
-      <React.Fragment>
-        <Seo title={`Home`} />
-        <HomepageLayout>
-          <Row type="flex">
-            <Services />
-          </Row>
-        </HomepageLayout>
-      </React.Fragment>
-    )
-  }
+const IndexPage = ({ data }) => {
+  const [zero] = data.allWordpressWpHomeContent.edges
+  const {
+    content,
+    slug,
+    title,
+    acf: {
+      service_img: {
+        localFile: {
+          name,
+          childImageSharp: {
+            fluid: { src },
+          },
+        },
+      },
+    },
+  } = zero.node
+
+  return (
+    <React.Fragment>
+      <Seo title={`Home`} />
+      <HomepageLayout
+        services={{
+          dataCotent: { content, slug, title },
+          imageContent: { name, src },
+        }}
+      />
+    </React.Fragment>
+  )
 }
 
 export default IndexPage
 
-export const contentQuery = graphql`
-  query contentQuery {
+export const homeQuery = graphql`
+  query homeQuery {
     allWordpressWpHomeContent {
-      nodes {
-        slug
-        path
-        title
-        content
-        id
+      edges {
+        node {
+          acf {
+            service_img {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 512) {
+                    src
+                  }
+                }
+                name
+              }
+            }
+          }
+          content
+          slug
+          title
+        }
       }
     }
   }

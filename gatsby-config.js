@@ -2,30 +2,34 @@ require(`dotenv`).config()
 module.exports = {
   siteMetadata: {
     title: `cyberworks`,
-    siteUrl: `https://jam.cyberworks.tech`,
-    wordPressUrl: `https://jam.cyberworks.tech`,
+    siteUrl: `${process.env.URL_PROD}`,
+    wordPressUrl: `${process.env.URL_PROD}`,
     description: `business webiste`,
     author: `Olonnye Taylor`,
     pagePrefix: ``,
     siteLanguage: `en`,
   },
   plugins: [
-    `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-emotion`,
     `gatsby-plugin-theme-ui`,
     `gatsby-plugin-typescript`,
+    `gatsby-transformer-sharp`,
     // connection to wordpress data
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: process.env.URL_DEV,
+        baseUrl: `${process.env.URL_DEV}`,
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,
+        perPage: 100,
         verboseOutput: true,
         keepMediaSizes: false,
+        normalizer: function({ entities }) {
+          return entities
+        },
       },
     },
     // Include Ant Design component library.
@@ -50,7 +54,7 @@ module.exports = {
           // primary color for all components
           "primary-color": `#1890ff`,
           // @link-color: #1890ff;
-          "link-color": `#1890ff`,
+          "link-color": `#f5222d`,
           // @success-color: #52c41a;
           "success-color": `#52c41a`,
           // @warning-color: #faad14;
@@ -63,7 +67,7 @@ module.exports = {
           // @heading-color: rgba(0, 0, 0, .85);
           "heading-color": `rgba(0, 0, 0, .85)`,
           // @text-color: rgba(0, 0, 0, .65);
-          "text-color": `rgba(0, 0, 0, .65)`,
+          "text-color": `#fff`,
           // @text-color-secondary : rgba(0, 0, 0, .45);
           "text-color-secondary": `rgba(0, 0, 0, .45)`,
           // @disabled-color : rgba(0, 0, 0, .25);
@@ -77,31 +81,12 @@ module.exports = {
         },
       },
     },
-    // Setup jam.cyberworks.tech to be the source
-    {
-      resolve: `gatsby-source-graphql`,
-      options: {
-        // This type will contain remote schema Query type
-        typeName: `WPGraphQL`,
-        // This is field under which it's accessible
-        fieldName: `wpgraphql`,
-        // Url to query from
-        url: `https://jam.cyberworks.tech/graphql`,
-      },
-    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/public`,
-        name: `blog`,
       },
     },
     {

@@ -9,13 +9,13 @@ const createNewPages = require(`./gatsby/createNewPages`)
 // await createUsers(actions, graphql)
 // await createTags(actions, graphql)
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({ actions, graphql, reporter }) => {
   await Promise.all([
     (async () => {
       try {
         await createNewPages(actions, graphql)
       } catch (err) {
-        console.log(err, `in node`)
+        reporter.panicOnBuild(`Error while running GraphQL query: ${err}`)
       }
     })(actions, graphql),
   ])
