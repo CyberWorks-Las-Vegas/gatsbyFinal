@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `cyberworks`,
     siteUrl: `${process.env.URL_PROD}`,
-    wordPressUrl: `${process.env.URL_PROD}`,
+    wordPressUrl: `${process.env.URL_DEV}`,
     description: `business webiste`,
     author: `Olonnye Taylor`,
     pagePrefix: ``,

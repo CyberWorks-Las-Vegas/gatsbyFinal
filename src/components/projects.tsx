@@ -1,10 +1,10 @@
 // @jsx jsx
 import { jsx } from "theme-ui"
 import Divider from "../elements/divider"
-import Inner from "../elements/inner"
 import Content from "../elements/content"
 import SVG from "../styles/svg/svg"
 import { UpDown, UpDownWide } from "../styles/animations"
+
 // @ts-ignore
 // import ProjectsMDX from "../sections/projects"
 
@@ -25,22 +25,7 @@ const Projects = ({
       offset={1.1}
       factor={factor}
     />
-    <Content speed={0.4} offset={offset + 0.2} factor={factor}>
-      <Inner>
-        <div
-          /*// eslint-disable-next-line  */
-          // @ts-ignore
-          sx={{
-            display: `grid`,
-            gridGap: [4, 4, 4, 5],
-            gridTemplateColumns: [`1fr`, `1fr`, `repeat(2, 1fr)`],
-            h2: { gridColumn: `-1/1`, color: `white !important` },
-          }}
-        >
-          {children}
-        </div>
-      </Inner>
-    </Content>
+    {children}
     <Divider speed={0.1} offset={offset} factor={factor}>
       <UpDown>
         <SVG icon="box" width={6} color="icon_brightest" left="85%" top="75%" />

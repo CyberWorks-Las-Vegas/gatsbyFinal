@@ -25,7 +25,7 @@ const IndexPage = ({ data }) => {
     <React.Fragment>
       <Seo title={`Home`} />
       <HomepageLayout
-        services={{
+        servicesContext={{
           dataCotent: { content, slug, title },
           imageContent: { name, src },
         }}

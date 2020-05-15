@@ -41,7 +41,12 @@ class Header extends React.Component {
     })
 
     const menu = [
-      <Button className="header-remote-button" ghost size="medium" key="remote">
+      <Button
+        className="header-remote-button"
+        ghost
+        size="default"
+        key="remote"
+      >
         Remote
       </Button>,
       <Menu mode={menuMode} defaultSelectedKeys={[`Home`]} id="nav" key="nav">
@@ -52,7 +57,7 @@ class Header extends React.Component {
         <Menu.Item key="about">about</Menu.Item>
         <Menu.Item key="Login">
           <Link
-            href="#"
+            to="#"
             className="header-link"
             target="_blank"
             rel="noopener noreferrer"
@@ -94,7 +99,7 @@ class Header extends React.Component {
         ) : null}
         <Row>
           <Col lg={4} md={5} sm={24} xs={24}>
-            <Link id="logo">
+            <Link to="#" id="logo">
               <img alt="logo" src={cyberworksLogo} />
               <span className="logo-text">Cyber Works</span>
             </Link>

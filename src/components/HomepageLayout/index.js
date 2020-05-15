@@ -5,12 +5,15 @@ import landingImg from "../../images/cw-main-landing2-1.png"
 import { Parallax } from "react-spring/renderprops-addons"
 import Hero from "../hero"
 import Projects from "../projects"
+// import Content from "../../elements/content"
 import Services from "../Services"
+import Banner from "../Banner"
+import { ParallaxLayer } from "react-spring/renderprops-addons"
+import { css } from "theme-ui"
 // import SiteFooter from "../components/Footer"
 
 const HomepageLayout = props => {
   const parallax = useRef(null)
-  console.log(parallax)
   return (
     <React.Fragment>
       <Parallax pages={3} ref={parallax}>
@@ -34,33 +37,22 @@ const HomepageLayout = props => {
                           style={{
                             textAlign: `left`,
                             position: `absolute`,
-                            marginTop: `3rem`,
-                            marginLeft: `3rem`,
+                            marginTop: `9rem`,
+                            marginLeft: `20rem`,
                             width: `35vw`,
                             zIndex: `2`,
                           }}
                         >
-                          <h1 style={{ color: `reds` }}>
-                            Cyberworks Demo build
-                          </h1>
-                          {/*// eslint-disable-next-line react/jsx-no-comment-textnodes */}
-                          <p style={{ fontSize: `14px`, lineHeight: `3` }}>
-                            Zombie ipsum brains reversus ab cerebellum viral
-                            inferno, brein nam rick mend grimes malum cerveau
-                            cerebro. De carne cerebro lumbering animata cervello
-                            corpora quaeritis. Summus thalamus
-                            {/* eslint-disable-next-line no-irregular-whitespace */}
-                            brainssit​​, morbo basal ganglia vel maleficia? De
-                            braaaiiiins apocalypsi gorger omero prefrontal
-                            cortex undead survivor fornix dictum mauris. Hi
-                            brains mindless mortuis limbic
-                          </p>
+                          <Banner />
                         </article>
                         <img
                           style={{
+                            minWidth: `100vw`,
+                            minHeight: `49.5vmax`,
                             height: `100vh`,
                             width: `100vw`,
                             zIndex: `1`,
+                            overflow: `hidden`,
                           }}
                           src={landingImg}
                           alt="cyberworks Logo"
@@ -72,10 +64,25 @@ const HomepageLayout = props => {
               </Row>
             </Hero>
           </section>
-          <section>
-            <Projects offset={1} factor={2}>
-              <Services context={props.services} />
-            </Projects>
+          <section
+            style={{
+              position: `relative`,
+            }}
+          >
+            <Projects offset={1} factor={2} />
+            <ParallaxLayer
+              css={css({
+                padding: [3, 4, 4, 5],
+                display: `flex`,
+                flexDirection: `column`,
+                alignItems: `center`,
+                justifyContent: `center`,
+              })}
+              offset={1.2}
+              factor={2}
+            >
+              <Services context={props.servicesContext} />
+            </ParallaxLayer>
           </section>
         </main>
       </Parallax>

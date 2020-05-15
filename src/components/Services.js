@@ -1,43 +1,62 @@
-import React from "react"
-import Card from "./Card"
+import React, { Component } from "react"
+import QueueAnim from "rc-queue-anim"
+import ScrollAnim from "rc-scroll-anim"
+import { Row, Col } from "antd"
+import "../styles/less/services.less"
+import fakeData from "./fakeData"
 
-const Services = props => (
-  <React.Fragment>
-    <section id="features" className="py-20 lg:pb-40 lg:pt-48">
-      <div className="container mx-auto text-center">
-        <h2 className="text-3xl lg:text-5xl font-semibold">Services</h2>
-        <div className="flex flex-col sm:flex-row sm:-mx-3 mt-12">
-          <div className="flex-1 px-3">
-            <Card className="mb-8">
-              <p className="font-semibold text-xl">Service One</p>
-              <p className="mt-4">
-                De braaaiiiins apocalypsi gorger omero prefrontal cortex undead
-                survivor fornix dictum mauris.
-              </p>
-            </Card>
+class Services extends Component {
+  render() {
+    const ScrollElement = ScrollAnim.Element
+    const child = fakeData.map((d, i) => (
+      <Col span={8} className="col" key={i.toString()}>
+        <QueueAnim
+          type="bottom"
+          className="content-wrapper home-hover"
+          onClick={() => {
+            window.location.href = `/intro/price `
+          }}
+        >
+          <div key="image" className="image">
+            {d.svg}
           </div>
-          <div className="flex-1 px-3">
-            <Card className="mb-8">
-              <p className="font-semibold text-xl">Service Two</p>
-              <p className="mt-4">
-                cerveau eorum defunctis cerebro go lum cerebro. Nescio brains an
-                Undead cervello zombies.
-              </p>
-            </Card>
-          </div>
-          <div className="flex-1 px-3">
-            <Card className="mb-8">
-              <p className="font-semibold text-xl">Service Three</p>
-              <p className="mt-4">
-                Sicut thalamus malus putrid brains voodoo horror. Nigh basal
-                ganglia tofth eliv ingdead.
-              </p>
-            </Card>
-          </div>
-        </div>
-      </div>
-    </section>
-  </React.Fragment>
-)
+          <h3 key="h3">{d.title}</h3>
+          {d.content}
+          {d.exp && (
+            <div className="exp" key="exp">
+              {d.exp}
+            </div>
+          )}
+        </QueueAnim>
+      </Col>
+    ))
+    return (
+      <React.Fragment>
+        <section className="home-layout-wrapper home-serve-wrapper">
+          <ScrollElement className="home-layout" playScale={0.0001}>
+            <QueueAnim
+              className="home-serve"
+              type="bottom"
+              key="home-func"
+              ease="easeOutQuart"
+              leaveReverse
+            >
+              <h2 key="h2">服务方案</h2>
+              <i key="i" className="line" />
+              <QueueAnim
+                key="content"
+                component={Row}
+                type="bottom"
+                componentProps={{ gutter: 96 }}
+              >
+                {child}
+              </QueueAnim>
+            </QueueAnim>
+          </ScrollElement>
+        </section>
+      </React.Fragment>
+    )
+  }
+}
 
 export default Services
