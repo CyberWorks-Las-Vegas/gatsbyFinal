@@ -4,32 +4,12 @@ import HomepageLayout from "../components/HomepageLayout"
 import Seo from "../components/Seo"
 
 const IndexPage = ({ data }) => {
-  const [zero] = data.allWordpressWpHomeContent.edges
-  const {
-    content,
-    slug,
-    title,
-    acf: {
-      service_img: {
-        localFile: {
-          name,
-          childImageSharp: {
-            fluid: { src },
-          },
-        },
-      },
-    },
-  } = zero.node
+  const dataArray = data.allWordpressWpHomeContent.edges
 
   return (
     <React.Fragment>
       <Seo title={`Home`} />
-      <HomepageLayout
-        servicesContext={{
-          dataCotent: { content, slug, title },
-          imageContent: { name, src },
-        }}
-      />
+      <HomepageLayout servicesContext={dataArray} />
     </React.Fragment>
   )
 }

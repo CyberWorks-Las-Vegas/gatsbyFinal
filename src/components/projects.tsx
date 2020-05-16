@@ -25,7 +25,10 @@ const Projects = ({
       offset={1.1}
       factor={factor}
     />
-    {children}
+    <Content speed={-0.2} offset={1.1} factor={factor}>
+      {children}
+    </Content>
+
     <Divider speed={0.1} offset={offset} factor={factor}>
       <UpDown>
         <SVG icon="box" width={6} color="icon_brightest" left="85%" top="75%" />

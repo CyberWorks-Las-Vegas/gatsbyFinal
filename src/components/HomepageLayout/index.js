@@ -23,8 +23,9 @@ const HomepageLayout = props => {
             </Hero>
           </section>
           <section id="services">
-            <Projects offset={1} factor={2} />
-            <Services context={props.servicesContext} />
+            <Projects offset={1} factor={2}>
+              <Services context={props.servicesContext} />
+            </Projects>
           </section>
         </main>
       </Parallax>

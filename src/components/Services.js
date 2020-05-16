@@ -1,72 +1,73 @@
 import React from "react"
-import QueueAnim from "rc-queue-anim"
-import ScrollAnim from "rc-scroll-anim"
-import { ParallaxLayer } from "react-spring/renderprops-addons"
+import VisibilitySensor from "react-visibility-sensor"
+import { Spring } from "react-spring/renderprops"
 import { Row, Col } from "antd"
-import { css } from "theme-ui"
 import "../styles/less/services.less"
-import fakeData from "./fakeData"
 
 const Services = ({ context }) => {
-  const ScrollElement = ScrollAnim.Element
-  const child = fakeData.map((d, i) => (
-    <Col span={8} className="col" key={i.toString()}>
-      <QueueAnim
-        type="bottom"
-        className="content-wrapper home-hover"
-        onClick={() => {
-          window.location.href = `/intro/price `
-        }}
-      >
-        <div key="image" className="image">
-          {d.svg}
-        </div>
-        <h3 key="h3">{d.title}</h3>
-        {d.content}
-        {d.exp && (
-          <div className="exp" key="exp">
-            {d.exp}
-          </div>
-        )}
-      </QueueAnim>
-    </Col>
-  ))
+  console.log(context)
+  const child = (props, context) => {
+    console.log(typeof context, Array.isArray(context))
+    return context.map(inx => {
+      const { node } = inx
+      const {
+        content,
+        slug,
+        title,
+        acf: {
+          service_img: {
+            localFile: {
+              childImageSharp: {
+                fluid: { src },
+              },
+            },
+          },
+        },
+      } = node
+
+      return (
+        <React.Fragment key={slug}>
+          <Col span={8} className="col">
+            <div className="content-wrapper home-hover">
+              <img className="image" src={src} />
+              <h3>{title}</h3>
+              <div
+                style={{ ...props }}
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+            </div>
+          </Col>
+        </React.Fragment>
+      )
+    })
+  }
   return (
     <React.Fragment>
-      <ParallaxLayer
-        css={css({
-          padding: [3, 4, 4, 5],
-          display: `flex`,
-          flexDirection: `column`,
-          alignItems: `center`,
-          justifyContent: `center`,
-        })}
-        offset={1.2}
-        factor={2}
-      >
-        <article className="home-layout-wrapper home-serve-wrapper">
-          <ScrollElement className="home-layout" playScale={0.7}>
-            <QueueAnim
-              className="home-serve"
-              type="bottom"
-              key="home-func"
-              ease="easeOutQuart"
-              leaveReverse
+      <VisibilitySensor partialVisibility={true} delayedCall={true}>
+        {({ isVisible }) => (
+          <article className="home-serve-wrapper">
+            <Spring
+              delay={300}
+              to={{
+                opacity: isVisible ? 1 : 0,
+                transform: isVisible ? `translateY(0)` : `translateY(400px)`,
+              }}
             >
-              <h2 key="h2">服务方案</h2>
-              <i key="i" className="line" />
-              <QueueAnim
-                key="content"
-                component={Row}
-                type="bottom"
-                componentProps={{ gutter: 96 }}
-              >
-                {child}
-              </QueueAnim>
-            </QueueAnim>
-          </ScrollElement>
-        </article>
-      </ParallaxLayer>
+              {props => (
+                <React.Fragment>
+                  <Row type="flex" justify="center" className="home-layout">
+                    <div className="home-serve">
+                      <h2>Services</h2>
+                      <i className="line" />
+                      {child(props, context)}
+                    </div>
+                  </Row>
+                </React.Fragment>
+              )}
+            </Spring>
+          </article>
+        )}
+      </VisibilitySensor>
     </React.Fragment>
   )
 }
