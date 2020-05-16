@@ -8,7 +8,7 @@ import "../styles/less/banner.less"
 
 const Banner = props => {
   const styles = {
-    sectionStyles: {
+    articleStyles: {
       backgroundImage: `url(${landingImg})`,
       backgroundPosition: `center`,
       backgroundSize: `cover`,
@@ -27,7 +27,7 @@ const Banner = props => {
     <React.Fragment>
       <VisibilitySensor partialVisibility={true} delayedCall={true}>
         {({ isVisible }) => (
-          <section style={styles.sectionStyles} className="page banner-wrapper">
+          <article style={styles.articleStyles} className="page banner-wrapper">
             <Spring delay={300} to={styles.toProps(isVisible)}>
               {props => (
                 <React.Fragment>
@@ -57,7 +57,7 @@ const Banner = props => {
                 </React.Fragment>
               )}
             </Spring>
-          </section>
+          </article>
         )}
       </VisibilitySensor>
     </React.Fragment>
