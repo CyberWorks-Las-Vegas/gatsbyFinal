@@ -1,4 +1,5 @@
 import React from "react"
+// @css css
 import { css } from "theme-ui"
 import { ParallaxLayer } from "react-spring/renderprops-addons"
 
@@ -25,7 +26,7 @@ const Content = ({
       flexDirection: `column`,
       alignItems: `center`,
       justifyContent: `center`,
-      zIndex: 50,
+      zIndex: 1,
     })}
     speed={speed}
     offset={offset}

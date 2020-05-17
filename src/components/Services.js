@@ -1,14 +1,12 @@
 import React from "react"
 import VisibilitySensor from "react-visibility-sensor"
-import { Spring } from "react-spring/renderprops"
+import { Spring, Trail, animated } from "react-spring/renderprops"
 import { Row, Col } from "antd"
 import "../styles/less/services.less"
 
 const Services = ({ context }) => {
-  console.log(context)
-  const child = (props, context) => {
-    console.log(typeof context, Array.isArray(context))
-    return context.map(inx => {
+  const child = (context, isVisible) =>
+    context.map(inx => {
       const { node } = inx
       const {
         content,
@@ -24,50 +22,75 @@ const Services = ({ context }) => {
           },
         },
       } = node
-
+      const items = [
+        // eslint-disable-next-line react/jsx-key
+        <h3>{title}</h3>,
+        // eslint-disable-next-line react/jsx-key
+        <i className="line" />,
+        // eslint-disable-next-line react/jsx-key
+        <div dangerouslySetInnerHTML={{ __html: content }} />,
+      ]
       return (
         <React.Fragment key={slug}>
           <Col span={8} className="col">
             <div className="content-wrapper home-hover">
               <img className="image" src={src} />
-              <h3>{title}</h3>
-              <div
-                style={{ ...props }}
-                dangerouslySetInnerHTML={{ __html: content }}
-              />
+              <div className="content-wrapper-services">
+                <Trail
+                  native
+                  initial={null}
+                  items={items}
+                  from={{ opacity: 0, y: -800 }}
+                  to={{
+                    opacity: isVisible ? 1 : 0.25,
+                    y: isVisible ? 0 : 800,
+                  }}
+                >
+                  {item => ({ y, opacity }) => (
+                    <animated.div
+                      className="box"
+                      style={{
+                        opacity,
+                        transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
+                      }}
+                    >
+                      {item}
+                    </animated.div>
+                  )}
+                </Trail>
+              </div>
             </div>
           </Col>
         </React.Fragment>
       )
     })
-  }
   return (
     <React.Fragment>
-      <VisibilitySensor partialVisibility={true} delayedCall={true}>
-        {({ isVisible }) => (
-          <article className="home-serve-wrapper">
-            <Spring
-              delay={300}
-              to={{
-                opacity: isVisible ? 1 : 0,
-                transform: isVisible ? `translateY(0)` : `translateY(400px)`,
-              }}
-            >
-              {props => (
-                <React.Fragment>
-                  <Row type="flex" justify="center" className="home-layout">
-                    <div className="home-serve">
-                      <h2>Services</h2>
+      <article className="home-serve-wrapper">
+        <Row type="flex" justify="center" className="home-layout">
+          <VisibilitySensor partialVisibility={true} delayedCall={true}>
+            {({ isVisible }) => (
+              <Spring
+                delay={100}
+                to={{
+                  opacity: isVisible ? 1 : 0,
+                  transform: isVisible ? `translateY(0)` : `translateY(400px)`,
+                }}
+              >
+                {props => (
+                  <React.Fragment>
+                    <div style={{ ...props }} className="home-serve">
+                      <h3 className="main-title">Services</h3>
                       <i className="line" />
-                      {child(props, context)}
+                      {child(context, isVisible)}
                     </div>
-                  </Row>
-                </React.Fragment>
-              )}
-            </Spring>
-          </article>
-        )}
-      </VisibilitySensor>
+                  </React.Fragment>
+                )}
+              </Spring>
+            )}
+          </VisibilitySensor>
+        </Row>
+      </article>
     </React.Fragment>
   )
 }

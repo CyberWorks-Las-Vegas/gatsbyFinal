@@ -1,7 +1,7 @@
 @import "~antd/lib/style/themes/default.less";
 
-@titleColor: white;
-@contentColor: black;
+@titleColor: rgb(255, 126, 113);
+@contentColor: white;
 
 .home-layout-wrapper {
   width: 100%;
@@ -17,6 +17,10 @@
     > div {
       float: left;
       width: 100%;
+    }
+    .main-title {
+      font-size: 37px;
+      text-transform: uppercase;
     }
     .col {
       .content-wrapper {
@@ -36,14 +40,15 @@ h3 {
   line-height: 32px;
   margin-bottom: 16px;
   color: @titleColor;
+  text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
 }
-// .line {
-//   width: 40px;
-//   height: 2px;
-//   display: block;
-//   background: #ffbf00;
-//   margin: 16px auto 72px;
-// }
+.line {
+  width: 40px;
+  height: 2px;
+  display: block;
+  background: #ffbf00;
+  margin: 16px auto 32px;
+}
 .home-serve-wrapper {
   height: 788px;
   text-align: center;
@@ -63,6 +68,16 @@ h3 {
         p {
           color: fade(#000000, 65);
         }
+      }
+      .content-wrapper-services {
+        background: linear-gradient(
+          180deg,
+          rgba(192, 247, 250, 0.4),
+          rgba(60, 133, 226, 0.1)
+        );
+      }
+      div p {
+        color: white;
       }
     }
     .image {
