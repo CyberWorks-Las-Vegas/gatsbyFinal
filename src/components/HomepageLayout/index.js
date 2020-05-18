@@ -4,15 +4,16 @@ import { Parallax } from "react-spring/renderprops-addons"
 import Hero from "../hero"
 import Projects from "../projects"
 import Services from "../Services"
+import GetStarted from "../GetStarted"
 import Banner from "../Banner"
 
 // import SiteFooter from "../components/Footer"
 
-const HomepageLayout = props => {
+const HomepageLayout = () => {
   const parallax = useRef(null)
   return (
     <React.Fragment>
-      <Parallax pages={3} ref={parallax}>
+      <Parallax pages={8} ref={parallax}>
         <header>
           <SiteHeader />
         </header>
@@ -24,10 +25,16 @@ const HomepageLayout = props => {
           </section>
           <section id="services">
             <Projects offset={1} factor={2}>
-              <Services context={props.servicesContext} />
+              <Services />
             </Projects>
           </section>
+          <section className="started">
+            <GetStarted />
+          </section>
         </main>
+        <footer className="footer">
+          <div></div>
+        </footer>
       </Parallax>
     </React.Fragment>
   )

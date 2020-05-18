@@ -1,10 +1,43 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import VisibilitySensor from "react-visibility-sensor"
 import { Spring, Trail, animated } from "react-spring/renderprops"
 import { Row, Col } from "antd"
 import "../styles/less/services.less"
 
-const Services = ({ context }) => {
+const Services = () => {
+  const data = useStaticQuery(
+    graphql`
+      query Home_Services_Query {
+        allWordpressWpHomeContent(
+          filter: { tags: { elemMatch: { name: { eq: "services" } } } }
+        ) {
+          edges {
+            node {
+              acf {
+                service_img {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 512) {
+                        src
+                      }
+                    }
+                    name
+                  }
+                }
+              }
+              content
+              slug
+              title
+            }
+          }
+        }
+      }
+    `
+  )
+
+  const context = data.allWordpressWpHomeContent.edges
+
   const child = (context, isVisible) =>
     context.map(inx => {
       const { node } = inx
@@ -38,20 +71,21 @@ const Services = ({ context }) => {
               <div className="content-wrapper-services">
                 <Trail
                   native
+                  delay={300}
                   initial={null}
                   items={items}
-                  from={{ opacity: 0, y: -800 }}
+                  from={{ opacity: 0, x: -400 }}
                   to={{
                     opacity: isVisible ? 1 : 0.25,
-                    y: isVisible ? 0 : 800,
+                    x: isVisible ? 0 : -400,
                   }}
                 >
-                  {item => ({ y, opacity }) => (
+                  {item => ({ x, opacity }) => (
                     <animated.div
                       className="box"
                       style={{
                         opacity,
-                        transform: y.interpolate(y => `translate3d(0,${y}%,0)`),
+                        transform: x.interpolate(x => `translate3d(${x}%,0,0)`),
                       }}
                     >
                       {item}
@@ -71,10 +105,10 @@ const Services = ({ context }) => {
           <VisibilitySensor partialVisibility={true} delayedCall={true}>
             {({ isVisible }) => (
               <Spring
-                delay={100}
+                delay={300}
                 to={{
                   opacity: isVisible ? 1 : 0,
-                  transform: isVisible ? `translateY(0)` : `translateY(400px)`,
+                  transform: isVisible ? `translateX(0)` : `translateX(400px)`,
                 }}
               >
                 {props => (
