@@ -1,15 +1,15 @@
 // @jsx jsx
 import React from "react"
 import { jsx } from "theme-ui"
-import Divider from "../elements/divider"
-import Inner from "../elements/inner"
-import Content from "../elements/content"
-import SVG from "../styles/svg/svg"
-import { UpDown, UpDownWide } from "../styles/animations"
+import Divider from "./elements/divider"
+import Inner from "./elements/inner"
+import Content from "./elements/content"
+import SVG from "../../resources/svg/svg"
+import { UpDown, UpDownWide } from "../../resources/animations"
 // @ts-ignore
 // import Intro from "../sections/intro"
 
-const Hero = ({
+const BannerWrapper = ({
   offset,
   factor = 1,
   children,
@@ -162,4 +162,4 @@ const Hero = ({
   </div>
 )
 
-export default Hero
+export default BannerWrapper

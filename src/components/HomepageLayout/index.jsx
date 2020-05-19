@@ -1,11 +1,12 @@
 import React, { useRef } from "react"
-import SiteHeader from "../../components/SiteHeader/testHeader"
 import { Parallax } from "react-spring/renderprops-addons"
-import Hero from "../hero"
-import Projects from "../projects"
-import Services from "../Services"
-import GetStarted from "../GetStarted"
-import Banner from "../Banner"
+import BannerWrapper from "../ParallaxWrapper/BannerWrapper"
+import ServicesWrapper from "../ParallaxWrapper/ServicesWrapper"
+import StartedWrapper from "../ParallaxWrapper/StartedWrapper"
+import SiteHeader from "./Sections/Header"
+import Banner from "./Sections/Banner"
+import Services from "./Sections/Services"
+import Started from "./Sections/Started"
 
 // import SiteFooter from "../components/Footer"
 
@@ -19,17 +20,19 @@ const HomepageLayout = () => {
         </header>
         <main>
           <section id="home">
-            <Hero offset={0} factor={1}>
-              <Banner style={{ position: `absolute` }} />
-            </Hero>
+            <BannerWrapper offset={0} factor={1}>
+              <Banner />
+            </BannerWrapper>
           </section>
           <section id="services">
-            <Projects offset={1} factor={2}>
+            <ServicesWrapper offset={1} factor={2}>
               <Services />
-            </Projects>
+            </ServicesWrapper>
           </section>
           <section className="started">
-            <GetStarted />
+            <StartedWrapper offset={3.6} factor={3}>
+              <Started />
+            </StartedWrapper>
           </section>
         </main>
         <footer className="footer">

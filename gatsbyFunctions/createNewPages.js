@@ -38,7 +38,7 @@ module.exports = async (actions, graphql) => {
 
   await fetchHomePageContent()
     .then(nodeCount => {
-      const pageTemplate = path.resolve(`./src/templates/homePage.js`)
+      const pageTemplate = path.resolve(`./src/templates/homePage.jsx`)
       console.log(`create home page: ${nodeCount}`)
       createPage({
         path: `/Home`,

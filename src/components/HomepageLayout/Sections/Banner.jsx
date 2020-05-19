@@ -1,10 +1,10 @@
 import React from "react"
 // import PropTypes from "prop-types"
 import { Icon, Row, Col } from "antd"
-import landingImg from "../images/cw-main-landing2-1.png"
+import landingImg from "../../../resources/images/cyberworks-landing-image.png"
 import VisibilitySensor from "react-visibility-sensor"
 import { Spring } from "react-spring/renderprops"
-import "../styles/less/banner.less"
+import "../../../resources/less/banner.less"
 
 const Banner = props => {
   const styles = {

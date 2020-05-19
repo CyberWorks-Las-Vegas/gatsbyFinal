@@ -1,5 +1,5 @@
 import React from "react"
-// @jsx jsx 
+// @jsx jsx
 import { jsx } from "theme-ui"
 
 type InnerProps = {

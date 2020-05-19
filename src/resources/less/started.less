@@ -5,7 +5,6 @@
   width: 100vw;
   margin: auto;
   overflow: hidden;
-  background: #fff;
   .image-wrapper-started {
     width: 65%;
     float: left;
@@ -19,7 +18,13 @@
     top: 20%;
     left: -30px;
     // font-family: Lato, @font-family;
-    z-index: 1;
+    z-index: 3;
+    &:hover {
+      > em,
+      p {
+        color: fade(#000000, 65);
+      }
+    }
   }
   .text-wrapper h2,
   .text-wrapper-bottom h2 {
@@ -32,7 +37,7 @@
     margin: 10px 0 20px;
     font-size: 16px;
     line-height: 28px;
-    color: #999;
+    color: white;
   }
   .left-text {
     padding-left: 10%;
@@ -42,36 +47,6 @@
   min-height: 700px;
   height: 100vh;
 }
-
-// .image1 {
-//   background: url("https://t.alipayobjects.com/images/T1Ch8kXfpdXXXXXXXX.png")
-//     no-repeat right / 841px;
-//   height: 511px;
-//   top: 50%;
-//   margin-top: -256px;
-// }
-// .image2 {
-//   background: url("https://t.alipayobjects.com/images/T1r5RkXotXXXXXXXXX.png")
-//     no-repeat left / 800px;
-//   height: 474px;
-//   top: 50%;
-//   margin-top: -266px;
-// }
-// .image3 {
-//   padding-right: 10%;
-//   background: url("https://t.alipayobjects.com/images/T1nx0kXdFfXXXXXXXX.png")
-//     no-repeat right / 639px;
-//   background-origin: content-box;
-//   height: 500px;
-//   top: 50%;
-//   margin-top: -250px;
-// }
-// .image4 {
-//   background: url("https://t.alipayobjects.com/images/T1lyJkXg4aXXXXXXXX.png")
-//     no-repeat center / 615px;
-//   height: 364px;
-//   margin: auto;
-// }
 
 .text-wrapper-bottom {
   text-align: center;

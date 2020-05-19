@@ -86,7 +86,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/resources/images`,
       },
     },
     {
@@ -98,7 +98,7 @@ module.exports = {
         background_color: `#f0f2f5`,
         theme_color: `#001529`,
         display: `minimal-ui`,
-        icon: `src/images/wpgraphql-logo.png`, // This path is relative to the root of the site.
+        icon: `src/resources/images/cyberworks-logo.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality

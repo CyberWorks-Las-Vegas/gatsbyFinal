@@ -1,4 +1,4 @@
-const createNewPages = require(`./gatsby/createNewPages`)
+const createNewPages = require(`./gatsbyFunctions/createNewPages`)
 // const createUsers = require(`./gatsby/createUsers`)
 // const createCategories = require(`./gatsby/createCategories`)
 // const createTags = require(`./gatsby/createTags`)

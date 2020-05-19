@@ -3,7 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import VisibilitySensor from "react-visibility-sensor"
 import { Spring, Trail, animated } from "react-spring/renderprops"
 import { Row, Col } from "antd"
-import "../styles/less/services.less"
+import "../../../resources/less/services.less"
 
 const Services = () => {
   const data = useStaticQuery(

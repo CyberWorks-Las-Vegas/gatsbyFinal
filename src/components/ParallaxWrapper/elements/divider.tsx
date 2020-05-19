@@ -13,7 +13,16 @@ type DividerProps = {
   factor?: number
 }
 
-const Divider = ({ speed, offset, factor, bg, fill, clipPath, children, className }: DividerProps) => (
+const Divider = ({
+  speed,
+  offset,
+  factor,
+  bg,
+  fill,
+  clipPath,
+  children,
+  className,
+}: DividerProps) => (
   <ParallaxLayer
     css={css({
       position: `absolute`,

@@ -1,14 +1,14 @@
 // @jsx jsx
 import { jsx } from "theme-ui"
-import Divider from "../elements/divider"
-import Content from "../elements/content"
-import SVG from "../styles/svg/svg"
-import { UpDown, UpDownWide } from "../styles/animations"
+import Divider from "./elements/divider"
+import Content from "./elements/content"
+import SVG from "../../resources/svg/svg"
+import { UpDown, UpDownWide } from "../../resources/animations"
 
 // @ts-ignore
 // import ProjectsMDX from "../sections/projects"
 
-const Projects = ({
+const ServicesWrapper = ({
   offset,
   factor = 2,
   children,
@@ -130,4 +130,4 @@ const Projects = ({
   </div>
 )
 
-export default Projects
+export default ServicesWrapper
