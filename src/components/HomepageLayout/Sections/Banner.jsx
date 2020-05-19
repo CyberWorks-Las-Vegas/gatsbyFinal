@@ -15,7 +15,7 @@ const Banner = props => {
       backgroundRepeat: `no-repeat`,
     },
     rowStyles: { marginRight: `40vw` },
-    colStyles: { marginTop: `17vh` },
+    colStyles: { marginTop: `17vh`, fontSize: `1.1rem` },
     toProps: isVisible => {
       return {
         opacity: isVisible ? 1 : 0,
@@ -46,7 +46,9 @@ const Banner = props => {
                       <h2 style={{ ...props, marginBottom: 0 }}>
                         CYBER <p style={{ marginTop: 0 }}>SOLUTIONS</p>
                       </h2>
-                      <p key="content">insert inspiring motto</p>
+                      <p style={{ fontSize: `1.1rem` }}>
+                        Harness the power of Modern IT
+                      </p>
                       <span className="line" key="line" />
                       <div key="button1" className="start-button clearfix">
                         <a>Get Started</a>

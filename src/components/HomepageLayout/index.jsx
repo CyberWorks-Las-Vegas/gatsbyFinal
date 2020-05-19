@@ -3,18 +3,18 @@ import { Parallax } from "react-spring/renderprops-addons"
 import BannerWrapper from "../ParallaxWrapper/BannerWrapper"
 import ServicesWrapper from "../ParallaxWrapper/ServicesWrapper"
 import StartedWrapper from "../ParallaxWrapper/StartedWrapper"
+import FooterWrapper from "../ParallaxWrapper/FooterWrapper"
 import SiteHeader from "./Sections/Header"
 import Banner from "./Sections/Banner"
 import Services from "./Sections/Services"
 import Started from "./Sections/Started"
-
-// import SiteFooter from "../components/Footer"
+import Footer from "./Sections/Footer"
 
 const HomepageLayout = () => {
   const parallax = useRef(null)
   return (
     <React.Fragment>
-      <Parallax pages={8} ref={parallax}>
+      <Parallax pages={9.8} ref={parallax}>
         <header>
           <SiteHeader />
         </header>
@@ -29,15 +29,18 @@ const HomepageLayout = () => {
               <Services />
             </ServicesWrapper>
           </section>
-          <section className="started">
-            <StartedWrapper offset={3.6} factor={3}>
+          <section id="started">
+            <StartedWrapper offset={3.2} factor={3}>
               <Started />
             </StartedWrapper>
           </section>
         </main>
-        <footer className="footer">
-          <div></div>
-        </footer>
+
+        <FooterWrapper offset={0} factor={9.95}>
+          <footer id="footer">
+            <Footer />
+          </footer>
+        </FooterWrapper>
       </Parallax>
     </React.Fragment>
   )

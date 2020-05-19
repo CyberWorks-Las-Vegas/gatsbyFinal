@@ -98,7 +98,7 @@ export default {
       fontSize: [1, 2],
       letterSpacing: `-0.003em`,
       lineHeight: `body`,
-      "--baseline-multiplier": 0.179,
+      "--baseline-multiplier": 0.12,
       "--x-height-multiplier": 0.35,
       color: `text`,
     },

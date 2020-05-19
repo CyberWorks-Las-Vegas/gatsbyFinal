@@ -8,9 +8,9 @@ import { UpDown, UpDownWide } from "../../resources/animations"
 // @ts-ignore
 // import ProjectsMDX from "../sections/projects"
 
-const StartedWrapper = ({
+const FooterWrapper = ({
   offset,
-  factor = 2,
+  factor,
   children,
 }: {
   offset: number
@@ -20,16 +20,16 @@ const StartedWrapper = ({
   <div>
     <Divider
       bg="linear-gradient(to left, SlateBlue 0%, DeepSkyBlue 100%)"
-      sx={{ clipPath: `polygon(0 10%,100% 7%,100% 78%,0 77%)` }}
+      sx={{ clipPath: `polygon(0 14%,100% 7%,100% 78%,0 77%)` }}
       speed={-0.2}
-      offset={2.7}
-      factor={9}
+      offset={3.4}
+      factor={factor}
     />
-    <Content speed={-0.2} offset={2.7} factor={factor}>
+    <Content speed={-0.2} offset={3.2} factor={factor}>
       {children}
     </Content>
 
-    <Divider speed={0.1} offset={2.7} factor={9}>
+    <Divider speed={0.1} offset={3.2} factor={factor}>
       <UpDown>
         <SVG icon="box" width={6} color="icon_brightest" left="85%" top="75%" />
         <SVG icon="upDown" width={8} color="icon_teal" left="70%" top="20%" />
@@ -130,4 +130,4 @@ const StartedWrapper = ({
   </div>
 )
 
-export default StartedWrapper
+export default FooterWrapper

@@ -63,7 +63,7 @@ module.exports = {
           "error-color": `#f5222d`,
           // @font-size-base: 14px;
           // major text font size
-          "font-size-base": `16px`,
+          "font-size-base": `13px`,
           // @heading-color: rgba(0, 0, 0, .85);
           "heading-color": `rgba(0, 0, 0, .85)`,
           // @text-color: rgba(0, 0, 0, .65);
