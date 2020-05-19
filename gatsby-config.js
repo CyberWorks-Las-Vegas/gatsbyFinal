@@ -20,7 +20,7 @@ module.exports = {
       resolve: `gatsby-source-wordpress`,
       options: {
         baseUrl: `jam.cyberworks.tech`,
-        protocol: `https`,
+        protocol: `http`,
         hostingWPCOM: false,
         useACF: false,
         perPage: 100,
