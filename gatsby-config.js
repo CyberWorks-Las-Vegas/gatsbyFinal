@@ -21,7 +21,7 @@ module.exports = {
       options: {
         baseUrl: `jam.cyberworks.tech`,
         protocol: `https`,
-        restApiRoutePrefix: `index.php?rest_route=`,
+        restApiRoutePrefix: `index.php?rest_route=/`,
         hostingWPCOM: false,
         useACF: false,
         perPage: 100,
