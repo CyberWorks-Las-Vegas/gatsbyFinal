@@ -1,9 +1,8 @@
-require(`dotenv`).config()
 module.exports = {
   siteMetadata: {
     title: `cyberworks`,
-    siteUrl: `${process.env.URL_PROD}`,
-    wordPressUrl: `${process.env.URL_PROD}`,
+    siteUrl: `https://jam.cyberworks.tech`,
+    wordPressUrl: `https://jam.cyberworks.tech`,
     description: `business webiste`,
     author: `Olonnye Taylor`,
     pagePrefix: ``,
@@ -20,7 +19,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `${process.env.URL_PROD}`,
+        baseUrl: `https://jam.cyberworks.tech`,
         protocol: `https`,
         hostingWPCOM: false,
         useACF: true,
