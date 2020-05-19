@@ -19,8 +19,7 @@ const FooterWrapper = ({
 }) => (
   <div>
     <Divider
-      bg="linear-gradient(to left, SlateBlue 0%, DeepSkyBlue 100%)"
-      sx={{ clipPath: `polygon(0 14%,100% 7%,100% 78%,0 77%)` }}
+      sx={{ clipPath: `polygon(0 10%,100% 7%,100% 78%,0 77%)` }}
       speed={-0.2}
       offset={3.4}
       factor={factor}

@@ -3,10 +3,10 @@ import React from "react"
 import HomepageLayout from "../components/HomepageLayout"
 import Seo from "../components/Seo"
 
-const IndexPage = () => (
+const IndexPage = ({ location }) => (
   <React.Fragment>
     <Seo title={`Home`} />
-    <HomepageLayout />
+    <HomepageLayout location={location} />
   </React.Fragment>
 )
 

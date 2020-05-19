@@ -32,7 +32,9 @@ class Header extends React.Component {
   }
 
   render() {
-    const { isFirstScreen, isMoblie } = this.props
+    const { isFirstScreen, isMoblie, location } = this.props
+    const currentLocation = location.pathname.slice(1)
+
     const { menuVisible } = this.state
     const menuMode = isMoblie ? `inline` : `horizontal`
     const headerClassName = classNames({
@@ -49,12 +51,21 @@ class Header extends React.Component {
       >
         Remote
       </Button>,
-      <Menu mode={menuMode} defaultSelectedKeys={[`Home`]} id="nav" key="nav">
-        <Menu.Item key="Home">Home</Menu.Item>
-        <Menu.Item key="Services">Services</Menu.Item>
-        <Menu.Item key="testominals">testominals</Menu.Item>
-        <Menu.Item key="contact">contact</Menu.Item>
-        <Menu.Item key="about">about</Menu.Item>
+      <Menu
+        mode={menuMode}
+        defaultSelectedKeys={[`${currentLocation}`]}
+        id="nav"
+        key="nav"
+      >
+        <Menu.Item key="Home">
+          <Link to="/Home">Home</Link>
+        </Menu.Item>
+        <Menu.Item key="idea">
+          <Link to="/idea">Services</Link>
+        </Menu.Item>
+        <Menu.Item key="testominals">promotions</Menu.Item>
+        <Menu.Item key="contact">why cyberworks?</Menu.Item>
+        <Menu.Item key="about">contact</Menu.Item>
         <Menu.Item key="Login">
           <Link
             to="#"

@@ -3,7 +3,7 @@ module.exports = {
   siteMetadata: {
     title: `cyberworks`,
     siteUrl: `${process.env.URL_PROD}`,
-    wordPressUrl: `${process.env.URL_DEV}`,
+    wordPressUrl: `${process.env.URL_PROD}`,
     description: `business webiste`,
     author: `Olonnye Taylor`,
     pagePrefix: ``,
@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        baseUrl: `${process.env.URL_DEV}`,
+        baseUrl: `${process.env.URL_PROD}`,
         protocol: `http`,
         hostingWPCOM: false,
         useACF: true,

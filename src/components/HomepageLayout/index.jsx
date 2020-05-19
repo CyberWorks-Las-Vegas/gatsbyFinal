@@ -4,19 +4,19 @@ import BannerWrapper from "../ParallaxWrapper/BannerWrapper"
 import ServicesWrapper from "../ParallaxWrapper/ServicesWrapper"
 import StartedWrapper from "../ParallaxWrapper/StartedWrapper"
 import FooterWrapper from "../ParallaxWrapper/FooterWrapper"
-import SiteHeader from "./Sections/Header"
+import Header from "./Sections/Header"
 import Banner from "./Sections/Banner"
 import Services from "./Sections/Services"
 import Started from "./Sections/Started"
 import Footer from "./Sections/Footer"
 
-const HomepageLayout = () => {
+const HomepageLayout = ({ location }) => {
   const parallax = useRef(null)
   return (
     <React.Fragment>
       <Parallax pages={9.8} ref={parallax}>
         <header>
-          <SiteHeader />
+          <Header location={location} />
         </header>
         <main>
           <section id="home">

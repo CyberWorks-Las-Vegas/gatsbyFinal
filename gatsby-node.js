@@ -1,19 +1,12 @@
-const createNewPages = require(`./gatsbyFunctions/createNewPages`)
-// const createUsers = require(`./gatsby/createUsers`)
-// const createCategories = require(`./gatsby/createCategories`)
-// const createTags = require(`./gatsby/createTags`)
-// const createPosts = require(`./gatsby/createPosts`)
-
-// await createPosts(actions, graphql)
-// await createCategories(actions, graphql)
-// await createUsers(actions, graphql)
-// await createTags(actions, graphql)
+const createHomePage = require(`./gatsbyFunctions/createHomePage`)
+const createSitePages = require(`./gatsbyFunctions/createSitePages`)
 
 exports.createPages = async ({ actions, graphql, reporter }) => {
   await Promise.all([
     (async () => {
       try {
-        await createNewPages(actions, graphql)
+        await createHomePage(actions, graphql)
+        await createSitePages(actions, graphql)
       } catch (err) {
         reporter.panicOnBuild(`Error while running GraphQL query: ${err}`)
       }
