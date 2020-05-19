@@ -4,7 +4,7 @@ module.exports = async (actions, graphql) => {
   //  creates 'database' from the fetched WP data to run graphql queries
   const GET_PAGE_CONTENT = `
     {
-      allWordpressWpHomeContent {
+      home_contents {
         edges {
           node {
             id

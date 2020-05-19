@@ -9,7 +9,7 @@ const Started = () => {
   const data = useStaticQuery(
     graphql`
       query Home_Started_Query {
-        allWordpressWpHomeContent(
+        home_contents(
           filter: { tags: { elemMatch: { name: { eq: "started" } } } }
         ) {
           edges {
@@ -36,7 +36,7 @@ const Started = () => {
     `
   )
 
-  const context = data.allWordpressWpHomeContent.edges
+  const context = data.home_contents.edges
 
   const child = context => {
     const filteredArray = []

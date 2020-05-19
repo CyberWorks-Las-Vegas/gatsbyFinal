@@ -9,7 +9,7 @@ const Services = () => {
   const data = useStaticQuery(
     graphql`
       query Home_Services_Query {
-        allWordpressWpHomeContent(
+        home_contents(
           filter: { tags: { elemMatch: { name: { eq: "services" } } } }
         ) {
           edges {
@@ -36,7 +36,7 @@ const Services = () => {
     `
   )
 
-  const context = data.allWordpressWpHomeContent.edges
+  const context = data.home_contents.edges
 
   const child = (context, isVisible) =>
     context.map(inx => {
