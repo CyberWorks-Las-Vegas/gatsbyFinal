@@ -103,10 +103,8 @@ const Started = () => {
         title,
         acf: {
           started_img: {
-            localFile: {
-              childImageSharp: {
-                fluid: { src },
-              },
+            childImageSharp: {
+              fluid: { src },
             },
           },
         },
