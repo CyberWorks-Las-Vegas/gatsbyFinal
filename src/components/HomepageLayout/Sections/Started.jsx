@@ -48,9 +48,7 @@ const Started = () => {
       title: "blank text",
       acf: {
         service_img: {
-          childImageSharp: {
-            fluid: { src: presentation },
-          },
+          src: presentation,
         },
       },
     },
@@ -61,9 +59,7 @@ const Started = () => {
       title: "blank text",
       acf: {
         service_img: {
-          childImageSharp: {
-            fluid: { src: action },
-          },
+          src: action,
         },
       },
     },
@@ -74,9 +70,7 @@ const Started = () => {
       title: "blank text",
       acf: {
         started_img: {
-          childImageSharp: {
-            fluid: { src: experience },
-          },
+          src: experience,
         },
       },
     },
@@ -98,11 +92,7 @@ const Started = () => {
         slug,
         title,
         acf: {
-          started_img: {
-            childImageSharp: {
-              fluid: { src },
-            },
-          },
+          started_img: { src },
         },
       } = node
 
