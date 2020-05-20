@@ -87,17 +87,10 @@ const Started = () => {
     // })
 
     return context.map(node => {
-      const {
-        content,
-        slug,
-        title,
-        acf: {
-          started_img: { src },
-        },
-      } = node
+      const { content, slug, title } = node
 
       const imageStyle = {
-        background: `url(${src}) no-repeat ${
+        background: `url(${presentation}) no-repeat ${
           // eslint-disable-next-line quotes
           slug % 2 === 1 ? "right" : "left"
         } / 841px`,
