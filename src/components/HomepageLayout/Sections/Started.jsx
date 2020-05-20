@@ -48,10 +48,8 @@ const Started = () => {
       title: "blank text",
       acf: {
         service_img: {
-          localFile: {
-            childImageSharp: {
-              fluid: { src: presentation },
-            },
+          childImageSharp: {
+            fluid: { src: presentation },
           },
         },
       },
@@ -63,10 +61,8 @@ const Started = () => {
       title: "blank text",
       acf: {
         service_img: {
-          localFile: {
-            childImageSharp: {
-              fluid: { src: action },
-            },
+          childImageSharp: {
+            fluid: { src: action },
           },
         },
       },
