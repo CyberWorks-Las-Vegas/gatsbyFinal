@@ -48,7 +48,7 @@ const Started = () => {
       title: "blank text",
       acf: {
         service_img: {
-          src: presentation,
+          src: `${presentation}`,
         },
       },
     },
@@ -59,7 +59,7 @@ const Started = () => {
       title: "blank text",
       acf: {
         service_img: {
-          src: action,
+          src: `${action}`,
         },
       },
     },
@@ -70,7 +70,7 @@ const Started = () => {
       title: "blank text",
       acf: {
         started_img: {
-          src: experience,
+          src: `${experience}`,
         },
       },
     },
