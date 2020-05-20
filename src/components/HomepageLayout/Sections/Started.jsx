@@ -7,7 +7,7 @@ import "../../../resources/less/started.less"
 
 import presentation from "../../../resources/images/presentation.png"
 import action from "../../../resources/images/action_plan.png"
-import experience from "../../../resources/images/exp_started.png"
+import experience from "../../../resources/images/exp_start.png"
 
 const Started = () => {
   // const data = useStaticQuery(
