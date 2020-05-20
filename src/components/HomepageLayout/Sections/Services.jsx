@@ -88,8 +88,7 @@ const Services = () => {
   ]
 
   const child = (context, isVisible) =>
-    context.map(inx => {
-      const { node } = inx
+    context.map(node => {
       const {
         content,
         slug,
@@ -113,7 +112,7 @@ const Services = () => {
         // eslint-disable-next-line react/jsx-key
         <div>
           <p>
-            <em>content</em>
+            <em>{content}</em>
           </p>
         </div>,
       ]
