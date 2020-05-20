@@ -77,7 +77,7 @@ const Started = () => {
       slug: "blank text",
       title: "blank text",
       acf: {
-        service_img: {
+        started_img: {
           localFile: {
             childImageSharp: {
               fluid: { src: experience },
