@@ -19,7 +19,7 @@ const StartedWrapper = ({
 }) => (
   <div>
     <Divider
-      bg="linear-gradient(to left, SlateBlue 0%, DeepSkyBlue 100%)"
+      bg="linear-gradient(to left, SlateBlue 0%, rgb(172, 209, 234) 100%)"
       sx={{ clipPath: `polygon(0 10%,100% 7%,100% 78%,0 77%)` }}
       speed={-0.2}
       offset={2.7}

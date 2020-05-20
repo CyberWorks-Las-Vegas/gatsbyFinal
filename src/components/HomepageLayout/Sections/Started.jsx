@@ -1,54 +1,104 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 import VisibilitySensor from "react-visibility-sensor"
 import { animated, Spring, Trail } from "react-spring/renderprops"
 import { Row, Col, Icon, Button } from "antd"
 import "../../../resources/less/started.less"
 
-const Started = () => {
-  const data = useStaticQuery(
-    graphql`
-      query Home_Started_Query {
-        home_contents(
-          filter: { tags: { elemMatch: { name: { eq: "started" } } } }
-        ) {
-          edges {
-            node {
-              acf {
-                started_img {
-                  localFile {
-                    childImageSharp {
-                      fluid {
-                        src
-                      }
-                    }
-                    name
-                  }
-                }
-              }
-              content
-              slug
-              title
-            }
-          }
-        }
-      }
-    `
-  )
+import presentation from "../../..//resources/images/presentation.png"
+import action from "../../..//resources/images/action_plan.png"
+import experience from "../../..//resources/images/exp_started.png"
 
-  const context = data.home_contents.edges
+const Started = () => {
+  // const data = useStaticQuery(
+  //   graphql`
+  //     query Home_Started_Query {
+  //       home_contents(
+  //         filter: { tags: { elemMatch: { name: { eq: "started" } } } }
+  //       ) {
+  //         edges {
+  //           node {
+  //             acf {
+  //               started_img {
+  //                 localFile {
+  //                   childImageSharp {
+  //                     fluid {
+  //                       src
+  //                     }
+  //                   }
+  //                   name
+  //                 }
+  //               }
+  //             }
+  //             content
+  //             slug
+  //             title
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
+
+  const context = [
+    {
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique officia quis, aut eaque unde autem soluta voluptate recusandae error dolore vel quas excepturi officiis odit, animi suscipit dolor labore.,",
+      slug: "blank text",
+      title: "blank text",
+      acf: {
+        service_img: {
+          localFile: {
+            childImageSharp: {
+              fluid: { src: presentation },
+            },
+          },
+        },
+      },
+    },
+    {
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique officia quis, aut eaque unde autem soluta voluptate recusandae error dolore vel quas excepturi officiis odit, animi suscipit dolor labore.,",
+      slug: "blank text",
+      title: "blank text",
+      acf: {
+        service_img: {
+          localFile: {
+            childImageSharp: {
+              fluid: { src: action },
+            },
+          },
+        },
+      },
+    },
+    {
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique officia quis, aut eaque unde autem soluta voluptate recusandae error dolore vel quas excepturi officiis odit, animi suscipit dolor labore.,",
+      slug: "blank text",
+      title: "blank text",
+      acf: {
+        service_img: {
+          localFile: {
+            childImageSharp: {
+              fluid: { src: experience },
+            },
+          },
+        },
+      },
+    },
+  ]
 
   const child = context => {
-    const filteredArray = []
+    //  const filteredArray = []
 
-    context.forEach(inx => {
-      const { node } = inx
-      let index = parseInt(node.slug)
-      let newNode = Object.assign({ slug: index }, node)
-      filteredArray[index] = newNode
-    })
+    // context.forEach(inx => {
+    //   const { node } = inx
+    //   let index = parseInt(node.slug)
+    //   let newNode = Object.assign({ slug: index }, node)
+    //   filteredArray[index] = newNode
+    // })
 
-    return filteredArray.map(node => {
+    return context.map(node => {
       const {
         content,
         slug,

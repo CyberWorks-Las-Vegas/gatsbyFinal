@@ -1,42 +1,91 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+// import { graphql, useStaticQuery } from "gatsby"
 import VisibilitySensor from "react-visibility-sensor"
 import { Spring, Trail, animated } from "react-spring/renderprops"
 import { Row, Col } from "antd"
 import "../../../resources/less/services.less"
+import phone from "../../..//resources/images/services_phone.png"
+import log from "../../..//resources/images/services_log.png"
+import web from "../../..//resources/images/services_web.png"
 
 const Services = () => {
-  const data = useStaticQuery(
-    graphql`
-      query Home_Services_Query {
-        home_contents(
-          filter: { tags: { elemMatch: { name: { eq: "services" } } } }
-        ) {
-          edges {
-            node {
-              acf {
-                service_img {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 512) {
-                        src
-                      }
-                    }
-                    name
-                  }
-                }
-              }
-              content
-              slug
-              title
-            }
-          }
-        }
-      }
-    `
-  )
+  // const data = useStaticQuery(
+  //   graphql`
+  //     query Home_Services_Query {
+  //       home_contents(
+  //         filter: { tags: { elemMatch: { name: { eq: "services" } } } }
+  //       ) {
+  //         edges {
+  //           node {
+  //             acf {
+  //               service_img {
+  //                 localFile {
+  //                   childImageSharp {
+  //                     fluid(maxWidth: 512) {
+  //                       src
+  //                     }
+  //                   }
+  //                   name
+  //                 }
+  //               }
+  //             }
+  //             content
+  //             slug
+  //             title
+  //           }
+  //         }
+  //       }
+  //     }
+  //   `
+  // )
 
-  const context = data.home_contents.edges
+  const context = [
+    {
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique officia quis, aut eaque unde autem soluta voluptate recusandae error dolore vel quas excepturi officiis odit, animi suscipit dolor labore.,",
+      slug: "blank text",
+      title: "blank text",
+      acf: {
+        service_img: {
+          localFile: {
+            childImageSharp: {
+              fluid: { src: phone },
+            },
+          },
+        },
+      },
+    },
+    {
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique officia quis, aut eaque unde autem soluta voluptate recusandae error dolore vel quas excepturi officiis odit, animi suscipit dolor labore.,",
+      slug: "blank text",
+      title: "blank text",
+      acf: {
+        service_img: {
+          localFile: {
+            childImageSharp: {
+              fluid: { src: web },
+            },
+          },
+        },
+      },
+    },
+    {
+      content:
+        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat similique officia quis, aut eaque unde autem soluta voluptate recusandae error dolore vel quas excepturi officiis odit, animi suscipit dolor labore.,",
+      slug: "blank text",
+      title: "blank text",
+      acf: {
+        service_img: {
+          localFile: {
+            childImageSharp: {
+              fluid: { src: log },
+            },
+          },
+        },
+      },
+    },
+  ]
 
   const child = (context, isVisible) =>
     context.map(inx => {
@@ -55,13 +104,18 @@ const Services = () => {
           },
         },
       } = node
+      // dangerouslySetInnerHTML={{ __html: content }}
       const items = [
         // eslint-disable-next-line react/jsx-key
         <h3>{title}</h3>,
         // eslint-disable-next-line react/jsx-key
         <i className="line" />,
         // eslint-disable-next-line react/jsx-key
-        <div dangerouslySetInnerHTML={{ __html: content }} />,
+        <div>
+          <p>
+            <em>content</em>
+          </p>
+        </div>,
       ]
       return (
         <React.Fragment key={slug}>

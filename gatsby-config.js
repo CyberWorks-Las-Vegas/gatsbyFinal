@@ -23,7 +23,7 @@ module.exports = {
         protocol: `https`,
         restApiRoutePrefix: `index.php?rest_route=/`,
         hostingWPCOM: false,
-        useACF: false,
+        useACF: true,
         perPage: 100,
         verboseOutput: true,
         keepMediaSizes: false,
