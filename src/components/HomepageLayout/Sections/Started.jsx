@@ -5,9 +5,9 @@ import { animated, Spring, Trail } from "react-spring/renderprops"
 import { Row, Col, Icon, Button } from "antd"
 import "../../../resources/less/started.less"
 
-import presentation from "../../..//resources/images/presentation.png"
-import action from "../../..//resources/images/action_plan.png"
-import experience from "../../..//resources/images/exp_started.png"
+import presentation from "../../../resources/images/presentation.png"
+import action from "../../../resources/images/action_plan.png"
+import experience from "../../../resources/images/exp_started.png"
 
 const Started = () => {
   // const data = useStaticQuery(

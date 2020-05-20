@@ -4,9 +4,9 @@ import VisibilitySensor from "react-visibility-sensor"
 import { Spring, Trail, animated } from "react-spring/renderprops"
 import { Row, Col } from "antd"
 import "../../../resources/less/services.less"
-import phone from "../../..//resources/images/services_phone.png"
-import log from "../../..//resources/images/services_log.png"
-import web from "../../..//resources/images/services_web.png"
+import phone from "../../../resources/images/services_phone.png"
+import log from "../../../resources/images/services_log.png"
+import web from "../../../resources/images/services_web.png"
 
 const Services = () => {
   // const data = useStaticQuery(
