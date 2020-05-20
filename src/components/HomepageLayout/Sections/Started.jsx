@@ -78,10 +78,8 @@ const Started = () => {
       title: "blank text",
       acf: {
         started_img: {
-          localFile: {
-            childImageSharp: {
-              fluid: { src: experience },
-            },
+          childImageSharp: {
+            fluid: { src: experience },
           },
         },
       },
