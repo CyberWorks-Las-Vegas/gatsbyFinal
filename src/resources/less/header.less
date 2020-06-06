@@ -4,7 +4,9 @@
 
 @header-height: 5rem;
 #header {
-  position: relative;
+  position: absolute;
+  top: 0px;
+  left: 2%;
   z-index: 999;
   background: rgba(0, 0, 0, 0.25);
   border-bottom: 1px solid transparent;
@@ -12,7 +14,7 @@
     background 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
   height: @header-height;
   padding: 0 48px;
-  width: 100%;
+  width: 95%;
   &.home-nav-bottom {
     background: rgba(255, 255, 255, 0.9);
     border-bottom-color: #ebedee;

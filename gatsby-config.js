@@ -17,19 +17,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     // connection to wordpress data
     {
-      resolve: `gatsby-source-wordpress`,
+      resolve: `gatsby-source-graphql`,
       options: {
-        baseUrl: `jam.cyberworks.tech`,
-        protocol: `https`,
-        restApiRoutePrefix: `index.php?rest_route=/`,
-        hostingWPCOM: false,
-        useACF: true,
-        perPage: 100,
-        verboseOutput: true,
-        keepMediaSizes: false,
-        normalizer: function({ entities }) {
-          return entities
-        },
+        // Arbitrary name for the remote schema Query type
+        typeName: `CYBERWORKS__`,
+        // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+        fieldName: `cyberworksQL`,
+        // Url to query from
+        url: `https://jam.cyberworks.tech/graphql`,
       },
     },
     // Include Ant Design component library.

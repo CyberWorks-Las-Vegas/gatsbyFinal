@@ -14,10 +14,10 @@ const HomepageLayout = ({ location }) => {
   const parallax = useRef(null)
   return (
     <React.Fragment>
+      <header>
+        <Header location={location} />
+      </header>
       <Parallax pages={9.8} ref={parallax}>
-        <header>
-          <Header location={location} />
-        </header>
         <main>
           <section id="home">
             <BannerWrapper offset={0} factor={1}>

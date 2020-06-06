@@ -1,3 +1,4 @@
+// const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 const createHomePage = require(`./gatsbyFunctions/createHomePage`)
 const createSitePages = require(`./gatsbyFunctions/createSitePages`)
 
@@ -14,27 +15,47 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   ])
 }
 
-//exports.onCreateNode = ({ node, actions }) => {
-// const { createNodeField } = actions
+// exports.createResolvers = async ({
+//   actions,
+//   cache,
+//   createNodeId,
+//   createResolvers,
+//   store,
+//   reporter,
+// }) => {
+//   const { createNode } = actions
 
-/**
- * If these don't exist, the LBN WordPress Plugin isn't installed – so build all posts.
- */
-//   if (
-//     !Object.prototype.hasOwnProperty.call(node, `meta`) ||
-//     !Object.prototype.hasOwnProperty.call(node.meta, `lbn_published_production`)
-//   ) {
-//     createNodeField({ node, name: `deploy`, value: true })
-//     return
+//   try {
+//     await createResolvers({
+//       cyberworks_MediaItem: {
+//         imageFile: {
+//           type: `File`,
+//           async resolve(source) {
+//             let sourceUrl = source.sourceUrl
+//             let remoteFileNode
+
+//             try {
+//               if (source.mediaItemUrl !== undefined) {
+//                 sourceUrl = source.mediaItemUrl
+//               }
+
+//               remoteFileNode = await createRemoteFileNode({
+//                 url: encodeURI(sourceUrl),
+//                 store,
+//                 cache,
+//                 createNode,
+//                 createNodeId,
+//                 reporter,
+//               })
+//             } catch (err) {
+//               reporter.panicOnBuild(`Error while creating image nodes: ${err}`)
+//             }
+//             return remoteFileNode
+//           },
+//         },
+//       },
+//     })
+//   } catch (err) {
+//     reporter.panicOnBuild(`Error while running image resolver: ${err}`)
 //   }
-
-//   let deploy
-
-//   if (node.meta[`DEPLOY_ENV`]) {
-//     deploy = true
-//   } else {
-//     deploy = false
-//   }
-
-//   createNodeField({ node, name: `deploy`, value: deploy })
 // }
